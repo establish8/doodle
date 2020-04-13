@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>doodle!</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li class="active"><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+		</ul>
+	</nav>
+	<!-- nav -->
+	<div id="page01" class="container">
+		<div id="main">
+			<div id="bg"></div>
+			<img src="images/doodle_logo_big.png" alt="logo">
+			<div class="bg">
+				<div class="rectangle" id="rtg_left"></div>
+				<div class="rectangle" id="rtg_right"></div>
+				<div id="circle"></div>
+			</div>
+			<img src="images/doodle_text.png" alt="I doodle.">
+		</div>
+	</div>
+	<!-- #page01 -->
+	<div id="page02" class="container">
+		<div class="title">
+			<h1><img src="images/doodle_logo.png" alt="logo"></h1>
+			<p>01</p>
+		</div>
+		<!-- .title -->
+		<div class="work_wrap">
+			<div class="work">
+				<a href="images/oldme.jpg" target="_blank">
+					<img src="images/thum01.jpg" alt="thumnail">
+					<div class="cover">5 Seconds of Summer - Old Me</div>
+				</a>
+			</div>
+			<!-- .work(1) -->
+			<div class="work">
+				<a href="images/kickit.jpg" target="_blank">
+					<img src="images/thum02.jpg" alt="thumnail">
+					<div class="cover">NCT127 - Kick it</div>
+				</a>
+			</div>
+			<!-- .work(2) -->
+			<div class="work">
+				<a href="images/snl_weeknd.jpg" target="_blank">
+					<img src="images/thum03.jpg" alt="thumnail">
+					<div class="cover">SNL bumper - The Weeknd</div>
+				</a>
+			</div>
+			<!-- .work(3) -->
+			<div class="work">
+				<a href="images/hello.jpg" target="_blank">
+					<img src="images/thum04.jpg" alt="thumnail">
+					<div class="cover">wave text</div>
+				</a>
+			</div>
+			<!-- .work(4) -->
+		</div>
+		<!-- .work_wrap -->
+	</div>
+	<!-- #page02 -->
+
+	<div id="page03" class="container">
+		<div class="title">
+			<h1><img src="images/doodle_logo.png" alt="logo"></h1>
+			<p>02</p>
+		</div>
+		<!-- .title -->
+		<div class="work_wrap">
+			<div class="work">
+				<a href="images/south_of_the_river.jpg" target="_blank">
+					<img src="images/thum05.jpg" alt="thumnail">
+					<div class="cover">glitch</div>
+				</a>
+			</div>
+			<!-- .work(5) -->
+			<div class="work">
+				<a href="dior/index.html" target="_blank">
+					<img src="images/thum06.jpg" alt="thumnail">
+					<div class="cover">Dior Fall 2019 Menswear</div>
+				</a>
+			</div>
+			<!-- .work(6) -->
+		</div>
+		<!-- .work_wrap -->
+	</div>
+	<!-- #page03 -->
+
+	<script src="jquery-3.4.1.min.js"></script>
+	<script>
+		var nav = $("nav ul li");
+		var cont = $(".container");
+
+		nav.click(function(e){
+			e.preventDefault();
+			var target = $(this);
+			var index = target.index();
+			var section = cont.eq(index);
+			var offset = section.offset().top;
+			$("html, body").animate({scrollTop:offset},600);
+		});
+
+		$(window).scroll(function(){
+			var wScroll = $(this).scrollTop();
+
+			if(wScroll >= cont.eq(0).offset().top){
+				nav.removeClass("active");
+				nav.eq(0).addClass("active");
+			}
+			if(wScroll >= cont.eq(1).offset().top){
+				nav.removeClass("active");
+				nav.eq(1).addClass("active");
+			}
+			if(wScroll >= cont.eq(2).offset().top){
+				nav.removeClass("active");
+				nav.eq(2).addClass("active");
+			}
+
+			if(wScroll >= cont.eq(1).offset().top-$(window).height()/3){
+				cont.eq(1).addClass("show");
+			}
+			if(wScroll >= cont.eq(2).offset().top-$(window).height()/3){
+				cont.eq(2).addClass("show");
+			}
+		});
+	</script>
+</body>
+</html>
