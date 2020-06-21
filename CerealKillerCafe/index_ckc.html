@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>CEREAL KILLER CAFE</title>
+</head>
+<body>
+	<div id="main_first" class="container">
+		<div class="w_limit">
+			<h1>
+				<img src="img/ckc.png" alt="cereal killer cafe">
+			</h1>
+			<img src="img/title.png" alt="choose your cereal" id="main_title">
+			<nav>
+				<ul>
+					<li class="active"><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+				</ul>
+			</nav>
+			<!-- nav -->
+		</div>
+		<!-- .w_limit -->
+	</div>
+	<!-- #main_first -->
+
+	<div id="about" class="container">
+		<div class="w_limit">
+			<div class="half_area">
+				<img src="img/about.jpg" alt="cereals">
+			</div>
+			<!-- .half_area -->
+			<div class="half_area">
+				<img src="img/about_choose.png" alt="choose your cereal, milk, toppings">
+				<div><p>The world’s first international cereal cafe opened in 2014 by cereal obsessed twin brothers, Alan & Gary keery. The 90s themed nostalgic cafes are situated in Brick Lane and Camden in London, or you can visit us in Dubai mall. At cereal killer we don’t just eat our cereal from bowls, we use it in all our menu items, from chicken to ice cream, and alcohol to milkshakes. We are a dining experience that won’t be forgotten, not matter your age you’ll leave or cafes feeling like a kid again.</p></div>
+			</div>
+			<!-- .half_area -->
+		</div>
+	</div>
+	<!-- #about -->
+
+	<div id="menu" class="container">
+		<div class="w_limit">
+			<img src="img/menu.png" alt="menu" class="title">
+			<div id="menu_wrap">
+				<div class="menu">
+					<a href="#">
+						<img src="img/cereal.jpg" alt="cereals">
+						<div class="cover" id="cc"></div>
+						<img src="img/cereal.png" alt="choose cereal">
+					</a>
+				</div>
+				<!-- .menu(1) -->
+				<div class="menu">
+					<a href="#">
+						<img src="img/milk.jpg" alt="milk">
+						<div class="cover" id="mc"></div>
+						<img src="img/milk.png" alt="choose milk">
+					</a>
+				</div>
+				<!-- .menu(2) -->
+				<div class="menu">
+					<a href="#">
+						<img src="img/toppings.jpg" alt="topping">
+						<div class="cover" id="tc"></div>
+						<img src="img/toppings.png" alt="choose topping">
+					</a>
+				</div>
+				<!-- .menu(3) -->
+			</div>
+			<!-- #menu_wrap -->
+		</div>
+	</div>
+	<!-- #menu -->
+
+	<div id="information" class="container">
+		<div class="w_limit">
+			<div class="half_area">
+				<img src="img/location.png" alt="location" class="title">
+				<div id="map"></div>
+			</div>
+			<div class="half_area">
+				<div id="sns">
+					<img src="img/sns.png" alt="sns" class="title">
+					<ul>
+						<li><a href="#"><img src="img/instagram.png" alt="instagram"></a></li>
+						<li><a href="#"><img src="img/youtube.png" alt="youtube"></a></li>
+					</ul>
+				</div>
+				<!-- #sns -->
+				<div id="contact">
+					<img src="img/contact.png" alt="contact" class="title">
+					<p>info@cerealkillercafe.co.uk</p>
+				</div>
+				<!-- #contact -->
+			</div>
+		</div>		
+	</div>
+	<!-- information -->
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT7sSTMO5sgyqu_1l0KuaIK_QAyv0U44c&callback=initMap&language=en"async defer></script>
+	<script src="jquery-3.4.1.min.js"></script>
+	<script>
+	// Initialize and add the map
+	function initMap() {
+  	// The location of ckc
+  	var ckc = {lat: 51.5247557, lng: -0.0754134};
+  	// The map, centered at ckc
+  	var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 17, center: ckc});
+  	// The marker, positioned at ckc
+  	var marker = new google.maps.Marker({position: ckc, map: map});
+	}
+
+	var nav = $("nav ul li");
+	var cont = $(".container");
+
+	nav.click(function(e){
+		e.preventDefault();
+		var target = $(this);
+		var index = target.index();
+		var section = cont.eq(index);
+		var offset = section.offset().top;
+		$("html,body").animate({scrollTop:offset},600);
+	});
+
+	$(window).scroll(function(){
+		var wScroll = $(this).scrollTop();
+
+		if(wScroll >= cont.eq(0).offset().top){
+			nav.removeClass("active");
+			nav.eq(0).addClass("active");
+		}
+		if(wScroll >= cont.eq(1).offset().top){
+			nav.removeClass("active");
+			nav.eq(1).addClass("active");
+		}
+		if(wScroll >= cont.eq(2).offset().top){
+			nav.removeClass("active");
+			nav.eq(2).addClass("active");
+		}
+		if(wScroll >= cont.eq(3).offset().top){
+			nav.removeClass("active");
+			nav.eq(3).addClass("active");
+		}
+
+		if(wScroll >= cont.eq(1).offset().top-$(window).height()/3){
+			cont.eq(1).addClass("show");
+		}
+		if(wScroll >= cont.eq(2).offset().top-$(window).height()/3){
+			cont.eq(2).addClass("show");
+		}
+		if(wScroll >= cont.eq(3).offset().top-$(window).height()/3){
+			cont.eq(3).addClass("show");
+		}
+	});
+	</script>
+</body>
+</html>
