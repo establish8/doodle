@@ -176,6 +176,9 @@ nav ul li a{
 		background-repeat: no-repeat;
 		background-size: 90%;
 	}
+	.work{border-radius: 3%;}
+	.work img{border-radius: 3%;}
+	.work div{border-radius: 3%;}
 }
 @media (max-width: 480px){
 	nav{right: 12px;}
